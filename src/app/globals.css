@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 220 9% 46%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 220 9% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 220 90% 56%;
+  --background: 0 0% 100%;
+  --foreground: 220 9% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 9% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 9% 15%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 220 9% 15%;
+  --secondary-foreground: 220 14% 96%;
+  --muted: 220 9% 15%;
+  --muted-foreground: 220 14% 96%;
+  --accent: 220 9% 15%;
+  --accent-foreground: 220 14% 96%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 9% 15%;
+  --input: 220 9% 15%;
+  --ring: 220 90% 56%;
+  --background: 220 9% 9%;
+  --foreground: 220 14% 96%;
+  --card: 220 9% 9%;
+  --card-foreground: 220 14% 96%;
+  --popover: 220 9% 9%;
+  --popover-foreground: 220 14% 96%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Component Classes */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-primary {
+  @apply btn bg-blue-600 text-white shadow hover:bg-blue-700 h-9 px-4 py-2;
+}
+
+.btn-secondary {
+  @apply btn bg-gray-100 text-gray-900 shadow-sm hover:bg-gray-200 h-9 px-4 py-2;
+}
+
+.btn-outline {
+  @apply btn border border-gray-300 bg-white shadow-sm hover:bg-gray-50 hover:text-gray-900 h-9 px-4 py-2;
+}
+
+.btn-ghost {
+  @apply btn hover:bg-gray-100 hover:text-gray-900 h-9 px-4 py-2;
+}
+
+.btn-destructive {
+  @apply btn bg-red-600 text-white shadow-sm hover:bg-red-700 h-9 px-4 py-2;
+}
+
+.btn-sm {
+  @apply h-8 rounded-md px-3 text-xs;
+}
+
+.btn-lg {
+  @apply h-10 rounded-md px-8;
+}
+
+.input {
+  @apply flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.textarea {
+  @apply flex min-h-[60px] w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+.card {
+  @apply rounded-lg border border-gray-200 bg-white text-gray-900 shadow-sm;
+}
+
+.card-header {
+  @apply flex flex-col space-y-1.5 p-6;
+}
+
+.card-title {
+  @apply font-semibold leading-none tracking-tight;
+}
+
+.card-description {
+  @apply text-sm text-muted-foreground;
+}
+
+.card-content {
+  @apply p-6 pt-0;
+}
+
+.card-footer {
+  @apply flex items-center p-6 pt-0;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.badge-default {
+  @apply badge border-transparent bg-blue-600 text-white shadow hover:bg-blue-700;
+}
+
+.badge-secondary {
+  @apply badge border-transparent bg-gray-100 text-gray-900 hover:bg-gray-200;
+}
+
+.badge-destructive {
+  @apply badge border-transparent bg-red-600 text-white shadow hover:bg-red-700;
+}
+
+.badge-outline {
+  @apply badge text-gray-900 border-gray-300;
+}
+
+.table {
+  @apply w-full caption-bottom text-sm;
+}
+
+.table-header {
+  @apply [&_tr]:border-b;
+}
+
+.table-body {
+  @apply [&_tr:last-child]:border-0;
+}
+
+.table-footer {
+  @apply border-t bg-gray-50 font-medium [&>tr]:last:border-b-0;
+}
+
+.table-row {
+  @apply border-b transition-colors hover:bg-gray-50 data-[state=selected]:bg-gray-100;
+}
+
+.table-head {
+  @apply h-10 px-2 text-left align-middle font-medium text-gray-500 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px];
+}
+
+.table-cell {
+  @apply p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px];
+}
+
+.sidebar {
+  @apply flex h-full w-64 flex-col border-r border-gray-200 bg-white;
+}
+
+.sidebar-header {
+  @apply flex h-14 items-center border-b px-6;
+}
+
+.sidebar-content {
+  @apply flex-1 overflow-auto p-4;
+}
+
+.sidebar-nav {
+  @apply space-y-1;
+}
+
+.sidebar-nav-item {
+  @apply flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900;
+}
+
+.sidebar-nav-item.active {
+  @apply bg-blue-50 text-blue-600;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.page-header {
+  @apply border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60;
+}
+
+.page-title {
+  @apply text-2xl font-bold tracking-tight;
+}
+
+.page-description {
+  @apply text-gray-600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse rounded-md bg-gray-200;
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+}
